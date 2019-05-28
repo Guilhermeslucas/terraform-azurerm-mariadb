@@ -1,0 +1,1 @@
+# Terraform Module for MariaDB on Azure
