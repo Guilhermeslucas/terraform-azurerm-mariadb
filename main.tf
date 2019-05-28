@@ -1,10 +1,10 @@
-resource "azurerm_resource_group" "test" {
-  name     = "api-rg-pro"
-  location = "West Europe"
+resource "azurerm_resource_group" "mariadb_rg" {
+  name     = "mariadb-rg"
+  location = "East US"
 }
 
-resource "azurerm_mariadb_server" "test" {
-  name                = "mariadb-server-1"
+resource "azurerm_mariadb_server" "mariadb_server" {
+  name                = "mariadb-server"
   location            = "${azurerm_resource_group.test.location}"
   resource_group_name = "${azurerm_resource_group.test.name}"
 
@@ -27,7 +27,7 @@ resource "azurerm_mariadb_server" "test" {
   ssl_enforcement              = "Enabled"
 }
 
-resource "azurerm_mariadb_database" "example" {
+resource "azurerm_mariadb_database" "mariadb_database" {
   name                = "mariadb_database"
   resource_group_name = "${azurerm_resource_group.example.name}"
   server_name         = "${azurerm_mariadb_server.example.name}"

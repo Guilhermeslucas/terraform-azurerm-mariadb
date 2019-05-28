@@ -1,0 +1,5 @@
+[[constraint]]
+  name = "github.com/gruntwork-io/terratest"
+
+[prune]
+  unused-packages = true
