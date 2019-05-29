@@ -1,18 +1,18 @@
 variable "resource_group_name" {
-  description = "The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created."
+  description = "The name of the resource group in which to create the MariaDB Server."
 }
 
 variable "location" {
-  description = "Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created."
+  description = "Specifies the supported Azure location where the resource exists."
 }
 
 variable "server_name" {
-  description = "Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created."
+  description = "Specifies the name of the MariaDB Server."
 }
 
 variable "sku_name" {
-  description = "Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the tier + family + cores pattern (e.g. B_Gen4_1, GP_Gen5_8)."
-  default     = "B_Gen4_2"
+  description = "Specifies the SKU Name for this MariaDB Server."
+  default     = "B_Gen5_2"
 }
 
 variable "sku_capacity" {
@@ -27,7 +27,7 @@ variable "sku_tier" {
 
 variable "sku_family" {
   description = " The family of hardware Gen4 or Gen5."
-  default     = "Gen4"
+  default     = "Gen5"
 }
 
 variable "storage_mb" {
@@ -46,16 +46,16 @@ variable "geo_redundant_backup" {
 }
 
 variable "administrator_login" {
-  description = "The Administrator Login for the PostgreSQL Server. Changing this forces a new resource to be created."
+  description = "The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created."
 }
 
 variable "administrator_password" {
-  description = "The Password associated with the administrator_login for the PostgreSQL Server."
+  description = "The Password associated with the administrator_login for the MariaDB Server."
 }
 
 variable "server_version" {
-  description = "Specifies the version of PostgreSQL to use. Valid values are 9.5, 9.6, and 10.0. Changing this forces a new resource to be created."
-  default     = "9.5"
+  description = "Specifies the version of MariaDB to use."
+  default     = "10.2"
 }
 
 variable "ssl_enforcement" {
@@ -64,31 +64,16 @@ variable "ssl_enforcement" {
 }
 
 variable "db_names" {
-  description = "The list of names of the PostgreSQL Database, which needs to be a valid PostgreSQL identifier. Changing this forces a new resource to be created."
-  default     = []
+  description = "The list of names of the MariaDB Database, which needs to be a valid MariaDB."
+  default     = "defaultDB"
 }
 
 variable "db_charset" {
-  description = "Specifies the Charset for the PostgreSQL Database, which needs to be a valid PostgreSQL Charset. Changing this forces a new resource to be created."
-  default     = "UTF8"
+  description = "Specifies the Charset for the MariaDB Database, which needs to be a valid MariaDB Charset."
+  default     = "utf8"
 }
 
 variable "db_collation" {
-  description = "Specifies the Collation for the PostgreSQL Database, which needs to be a valid PostgreSQL Collation. Note that Microsoft uses different notation - en-US instead of en_US. Changing this forces a new resource to be created."
-  default     = "English_United States.1252"
-}
-
-variable "firewall_rule_prefix" {
-  description = "Specifies prefix for firewall rule names."
-  default     = "firewall-"
-}
-
-variable "firewall_rules" {
-  description = "The list of maps, describing firewall rules. Valid map items: name, start_ip, end_ip."
-  default     = []
-}
-
-variable "vnet_rule_name_prefix" {
-  description = "Specifies prefix for vnet rule names."
-  default     = "postgresql-vnet-rule-"
+  description = "Specifies the Collation for the MariaDB Database, which needs to be a valid MariaDB Collation."
+  default     = "utf8_general_ci"
 }
