@@ -63,7 +63,7 @@ variable "ssl_enforcement" {
   default     = "Enabled"
 }
 
-variable "db_names" {
+variable "db_name" {
   description = "The list of names of the MariaDB Database, which needs to be a valid MariaDB."
   default     = "defaultDB"
 }

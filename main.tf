@@ -1,36 +1,36 @@
 resource "azurerm_resource_group" "mariadb_rg" {
-  name     = "mariadb-rg"
-  location = "East US"
+  name     = "${var.resource_group_name}"
+  location = "${var.location}"
 }
 
 resource "azurerm_mariadb_server" "mariadb_server" {
-  name                = "mariadb-server"
+  name                = "${var.server_name}"
   location            = "${azurerm_resource_group.test.location}"
   resource_group_name = "${azurerm_resource_group.test.name}"
 
   sku {
-    name     = "B_Gen5_2"
-    capacity = 2
-    tier     = "Basic"
-    family   = "Gen5"
+    name     = "${var.sku_name}"
+    capacity = "${var.sku_capacity}"
+    tier     = "${var.sku_tier}"
+    family   = "${var.sku_family}"
   }
 
   storage_profile {
-    storage_mb            = 5120
-    backup_retention_days = 7
-    geo_redundant_backup  = "Disabled"
+    storage_mb            = "${var.storage_mb}"
+    backup_retention_days = "${var.backup_retention_days}"
+    geo_redundant_backup  = "${var.geo_redundant_backup}"
   }
 
-  administrator_login          = "mariadbadmin"
-  administrator_login_password = "H@Sh1CoR3!"
-  version                      = "10.2"
-  ssl_enforcement              = "Enabled"
+  administrator_login          = "${var.administrator_login}"
+  administrator_login_password = "${var.administrator_password}"
+  version                      = "${var.server_version}"
+  ssl_enforcement              = "${var.ssl_enforcement}"
 }
 
 resource "azurerm_mariadb_database" "mariadb_database" {
-  name                = "mariadb_database"
+  name                = "${var.db_name}"
   resource_group_name = "${azurerm_resource_group.example.name}"
   server_name         = "${azurerm_mariadb_server.example.name}"
-  charset             = "utf8"
-  collation           = "utf8_general_ci"
+  charset             = "${var.db_charset}"
+  collation           = "${var.db_collation}"
 }
