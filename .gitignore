@@ -10,4 +10,4 @@ vendor/
 .test-data/
 
 # Package version lock files
-Gemfile.lock
+Gopkg.lock
