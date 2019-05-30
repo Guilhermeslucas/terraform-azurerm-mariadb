@@ -20,7 +20,7 @@ COMMANDS=()
 
 if [ $1 == "validate" ] || [ $1 == "full" ]
 then
-    COMMANDS+=("terraform validate")
+    COMMANDS+=("terraform validate -check-variables=false")
     COMMANDS+=("dep ensure")
 fi
 

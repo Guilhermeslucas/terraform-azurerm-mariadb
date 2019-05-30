@@ -11,6 +11,3 @@ vendor/
 
 # Package version lock files
 Gopkg.lock
-
-#values for variables
-terraform.tfvars
