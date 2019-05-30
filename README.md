@@ -54,10 +54,35 @@ Then, just run with the desired option. It can be one of both ways below:
 ### Docker
 
 #### Prerequisites
+The only dependency needed to run the tests on Docker, is the [Docker](https://www.docker.com/community-edition#/download) 
+itself. For performing the tests on Docker, we are using the 
+```microsoft/terraform-test``` Docker hub image which adds additional tools / packages
+specific for this module (see Custom Image section).  Alternatively use only the
+`microsoft/terraform-test` Docker hub image 
+[by using these instructions](https://github.com/Azure/terraform-test).
 
 #### Build the image
+Before running the tests on Docker, you need to build the Docker image. To do that, run:
+
+``` bash
+docker build -t <name-you-want-for-the-image> .
+```
 
 #### Run test (Docker)
+
+This runs the Docker validation:
+
+```bash
+$ docker run --rm <name-you-gave-to-the-image> /bin/bash -c "./test.sh validate"
+```
+
+This runs the full tests (deploys resources into your Azure subscription):
+
+``` bash
+$ docker run -e "ARM_SUBSCRIPTION_ID=$AZURE_SUBSCRIPTION_ID" -e "ARM_CLIENT_ID=$AZURE_CLIENT_ID" -e "ARM_CLIENT_SECRET=$AZURE_CLIENT_SECRET" -e "ARM_TENANT_ID=$AZURE_TENANT_ID" -e "ARM_TEST_LOCATION=WestUS2" -e "ARM_TEST_LOCATION_ALT=EastUS" --rm <nameyou-gave-to-the-image> bash -c "./test.sh full"
+```
+
+Note: I'll see this again to check if everything is working correctly. 
 
 ## Credits
 To create this reposiotry, I followed the patterns and practices from the 
