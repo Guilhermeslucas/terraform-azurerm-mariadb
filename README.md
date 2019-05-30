@@ -96,8 +96,6 @@ This runs the full tests (deploys resources into your Azure subscription):
 $ docker run -e "ARM_SUBSCRIPTION_ID=$AZURE_SUBSCRIPTION_ID" -e "ARM_CLIENT_ID=$AZURE_CLIENT_ID" -e "ARM_CLIENT_SECRET=$AZURE_CLIENT_SECRET" -e "ARM_TENANT_ID=$AZURE_TENANT_ID" --rm <nameyou-gave-to-the-image> bash -c "./test.sh full"
 ```
 
-Note: I'll see this again to check if everything is working correctly. 
-
 ## Credits
 To create this reposiotry, I followed the patterns and practices from the 
 [postgresql module for Azure](https://github.com/Azure/terraform-azurerm-postgresql/).
