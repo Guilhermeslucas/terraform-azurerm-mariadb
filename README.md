@@ -3,6 +3,20 @@
 Terraform module to create a managed instance of a database in MariaDB on Azure.
 
 ## Usage
+Using this module is pretty simple and really straightforward. Use like this:
+
+``` hcl
+module "mariadb" {
+  source = "../../"
+
+  server_name = "mariadb-server"
+  administrator_login = "awesomeadmin"
+  administrator_password = "awesomepass12345!@#$%"
+  resource_group_name = "mariadb-rg"
+  location = "East US"
+
+}
+```
 
 ## Running tests
 In order to run the tests, I created two ways of doing that: Native and using Docker,
