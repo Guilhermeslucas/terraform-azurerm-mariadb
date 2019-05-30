@@ -14,3 +14,7 @@ output "administrator_password" {
 output "server_id" {
   value       = "${azurerm_mariadb_server.mariadb_server.id}"
 }
+
+output "db_name" {
+  value       = "${azurerm_mariadb_database.mariadb_database.name}"
+}

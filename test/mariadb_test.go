@@ -7,16 +7,21 @@ import (
 )
 
 func TestTerraformMariaDB(t *testing.T) {
-	var dbNames = "teste"
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: "./fixture",
 
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
-			"location": "west us 2",
-			"db_name":  dbNames,
+			"location":               "east us",
+			"resource_group_name":    "mariadb-rg",
+			"administrator_login":    "awesomeadmin",
+			"administrator_password": "awesomepass12345!@#$%",
 		},
 	}
+
+	//will run in the end of the method, destroying all the resources that
+	//terraform has created
 	defer terraform.Destroy(t, terraformOptions)
+
 }
