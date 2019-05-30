@@ -10,6 +10,14 @@ variable "server_name" {
   description = "Specifies the name of the MariaDB Server."
 }
 
+variable "administrator_login" {
+  description = "The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created."
+}
+
+variable "administrator_password" {
+  description = "The Password associated with the administrator_login for the MariaDB Server."
+}
+
 variable "sku_name" {
   description = "Specifies the SKU Name for this MariaDB Server."
   default     = "B_Gen5_2"
@@ -43,14 +51,6 @@ variable "backup_retention_days" {
 variable "geo_redundant_backup" {
   description = "Enable Geo-redundant or not for server backup. Valid values for this property are Enabled or Disabled, not supported for the basic tier."
   default     = "Disabled"
-}
-
-variable "administrator_login" {
-  description = "The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created."
-}
-
-variable "administrator_password" {
-  description = "The Password associated with the administrator_login for the MariaDB Server."
 }
 
 variable "server_version" {
