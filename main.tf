@@ -5,8 +5,8 @@ resource "azurerm_resource_group" "mariadb_rg" {
 
 resource "azurerm_mariadb_server" "mariadb_server" {
   name                = "${var.server_name}"
-  location            = "${azurerm_resource_group.test.location}"
-  resource_group_name = "${azurerm_resource_group.test.name}"
+  location            = "${azurerm_resource_group.mariadb_rg.location}"
+  resource_group_name = "${azurerm_resource_group.mariadb_rg.name}"
 
   sku {
     name     = "${var.sku_name}"
@@ -29,8 +29,8 @@ resource "azurerm_mariadb_server" "mariadb_server" {
 
 resource "azurerm_mariadb_database" "mariadb_database" {
   name                = "${var.db_name}"
-  resource_group_name = "${azurerm_resource_group.example.name}"
-  server_name         = "${azurerm_mariadb_server.example.name}"
+  resource_group_name = "${azurerm_resource_group.mariadb_rg.name}"
+  server_name         = "${azurerm_mariadb_server.mariadb_server.name}"
   charset             = "${var.db_charset}"
   collation           = "${var.db_collation}"
 }
