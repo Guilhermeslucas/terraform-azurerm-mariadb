@@ -31,7 +31,7 @@ terratest. It will create the infrastructure and do some testing with it. Note: 
 running the full command, be sure that you have followed the official docs mentioned above
 and authorized your command line to create resources on Azure.
 
-So, to test, make the scrpit executabe
+So, to test, make the scrpit executable:
 
 ``` bash
 chmod +x test.sh
@@ -79,7 +79,7 @@ $ docker run --rm <name-you-gave-to-the-image> /bin/bash -c "./test.sh validate"
 This runs the full tests (deploys resources into your Azure subscription):
 
 ``` bash
-$ docker run -e "ARM_SUBSCRIPTION_ID=$AZURE_SUBSCRIPTION_ID" -e "ARM_CLIENT_ID=$AZURE_CLIENT_ID" -e "ARM_CLIENT_SECRET=$AZURE_CLIENT_SECRET" -e "ARM_TENANT_ID=$AZURE_TENANT_ID" -e "ARM_TEST_LOCATION=WestUS2" -e "ARM_TEST_LOCATION_ALT=EastUS" --rm <nameyou-gave-to-the-image> bash -c "./test.sh full"
+$ docker run -e "ARM_SUBSCRIPTION_ID=$AZURE_SUBSCRIPTION_ID" -e "ARM_CLIENT_ID=$AZURE_CLIENT_ID" -e "ARM_CLIENT_SECRET=$AZURE_CLIENT_SECRET" -e "ARM_TENANT_ID=$AZURE_TENANT_ID" --rm <nameyou-gave-to-the-image> bash -c "./test.sh full"
 ```
 
 Note: I'll see this again to check if everything is working correctly. 
