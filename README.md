@@ -45,7 +45,7 @@ terratest. It will create the infrastructure and do some testing with it. Note: 
 running the full command, be sure that you have followed the official docs mentioned above
 and authorized your command line to create resources on Azure.
 
-So, to test, make the scrpit executable:
+So, to test, make the script executable:
 
 ``` bash
 chmod +x test.sh
@@ -97,6 +97,6 @@ $ docker run -e "ARM_SUBSCRIPTION_ID=$ARM_SUBSCRIPTION_ID" -e "ARM_CLIENT_ID=$AR
 ```
 
 ## Credits
-To create this reposiotry, I followed the patterns and practices from the 
+To create this repository, I followed the patterns and practices from the 
 [postgresql module for Azure](https://github.com/Azure/terraform-azurerm-postgresql/).
-If you are willing to develop a terraform module, this repo is a nice way to start. 
+If you are willing to develop a terraform module, this repo is a nice way to start.
