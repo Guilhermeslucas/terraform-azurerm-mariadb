@@ -1,13 +1,15 @@
-# Compiled files
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
 *.tfstate
-*.tfstate.backup
+*.tfstate.*
 
-# Go vendor directory
+# .tfvars files
+*.tfvars
+
+#vendor folder
 vendor/
-
-# Module directory
-.terraform/
-.test-data/
 
 # Package version lock files
 Gopkg.lock
